@@ -1,0 +1,227 @@
+<%- include('partials/header') %>
+
+<div class="dashboard-container">
+    <div class="dashboard-header">
+        <div class="dashboard-header-item">
+            <a href="/"><span>Notes</span></a>
+        </div>
+        <div class="dashboard-header-item profile-icon-container">
+            <div class="user-profile">
+                <i class="fas fa-user"></i>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="notes-container">
+        <div class="note-creator-div">
+            <div class="note-creator-item">
+                Take a note......
+                <div class="add-btn"><i class="fas fa-plus"></i></div>
+            </div>
+            <!-- <div class="note-creator-item-with-input">
+                
+            </div> -->
+            
+        </div>
+
+        <div class="notes">
+            <input type="text" style="display: none;" id="userId" name="userId" value="<%=currentuser._id%>" />
+            <% for(let i = 0; i < allNotes.length; i++) { %>
+                <form action="/dashboard/<%=allNotes[i]._id%>" method="POST">
+                    <div class="note <%=allNotes[i].color%>" data-bs-toggle="modal" data-bs-target="#edit-note" id="<%=allNotes[i]._id%>">
+                        <% if (allNotes[i].public){ %>
+                            <i class="fas fa-check-circle note-shared-indicator" data-bs-toggle="tooltip" data-bs-placement="bottom" title="This note is shared"></i>
+                        <% } %>
+                        
+                        <div class="note-title-cutted"><%=allNotes[i].title%></div>
+                        <div class="note-title" style="display: none;"><%=allNotes[i].title%></div>
+                        <div class="note-content"><%=allNotes[i].content%></div>
+                        <div class="note-content-full" style="display: none;"><%=allNotes[i].content%></div>
+                        <div class="note-options" style="display: none;">
+                            <div class="note-option-item share-btn-on-note" data-bs-toggle="modal" data-bs-target="#share-note"><i class="fas fa-user-plus"></i></div>
+                            <div class="note-option-item color-btn-on-note" data-bs-toggle="modal" data-bs-target="#themeModal"><i class="fas fa-palette"></i></div>
+                            <div class="note-option-item delete-btn-on-note" data-bs-toggle="modal" data-bs-target="#deleteNoteModal"><i class="fas fa-trash-alt"></i></div>
+                        </div>
+                        
+                        <input name="noteColor" style="display: none;" class="noteColor" value="<%=allNotes[i].color%>" />
+                        <input name="notePublicOrNot" style="display: none;" class="notePublicOrNot" value="<%=allNotes[i].public%>" />
+                        <input name="noteEditOrNot" style="display: none;" class="noteEditOrNot" value="<%=allNotes[i].edit%>" />
+                    </div>
+                    <button id="submit-note-action" type="submit" style="display: none;"></button>
+                </form>
+            <% } %>
+        </div>
+    </div>
+</div>
+
+<div class="user-profile-info-container" style="display: none;">
+    <div class="user-profile-info-item">
+        <span class="userName"><%=currentuser.name%></span>
+        <% if(!currentuser.username){ %>
+            <span class="userEmail">Welcome to notes app</span>
+        <% }else { %>
+            <span class="userEmail"><%=currentuser.username%></span>
+        <%  } %>
+        
+    </div>
+    <div class="user-profile-info-item item2">
+        <a href="/logout"><button class="btn logout-btn">Logout</button></a>
+    </div>
+</div>
+
+
+<!-- modal -->
+<div class="modal fade" id="edit-note" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+        <form action="/dashboard/editnote" method="POST">
+            <div class="modal-body">
+                <textarea id="edit-note-title" class="form-control" name="title" placeholder="Title" style="height: 80px;"></textarea>
+                <textarea class="form-control" name="content" placeholder="Note content" id="edit-note-content" style="height: 200px;"></textarea>
+            </div>
+            <input name="editnoteid" id="edit-note-id" style="display: none;" />
+            <div class="modal-footer edit-note-footer">
+            <button type="button" class="btn btn-outline-warning" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-warning edit-note-save-btn" type="submit">Save changes</button>
+            </div>
+            <button type="submit" id="edit-note-submit-btn" style="display: none;">Submit</button>
+        </form>
+    </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="share-note" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"><div class="share-note-icon"><i class="fas fa-user-plus"></i></div>Collaborate with others </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="dashboard/sharenote" method="POST">
+                <div class="share-note-item">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="share-note-public" name="public" />
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Share your Note With Others</label>
+                    </div>
+                </div>
+                <div class="share-note-item mt-2">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="share-note-editAcces" name="editAccess" disabled="true" />
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Give Edit Access</label>
+                    </div>
+                </div>
+                <div class="share-note-item mt-4">
+                    <p>Note :- Once saved the changes come back again to get link</p>
+                </div>
+                <div class="share-note-item mt-4 share-note-item-copy-link" style="display: none;">
+                    <div class="share-note-copy-link-container">
+                        <div class="share-note-copy-link-container-link" contenteditable="true">
+                            https://colorhunt.co/palettes/black
+                        </div>
+                        <div class="share-note-copy-link-container-copy-btn" onclick="copyFunc()">
+                            Copy
+                        </div>
+                    </div>
+                </div>
+                <input name="sharenoteid" id="share-note-id" style="display: none;" />
+                <button type="submit" id="share-note-submit-btn" style="display: none;"></button>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-warning" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-warning share-note-save-btn" type="submit">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal -->
+<div class="modal fade" id="deleteNoteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header delete-modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <div class="delete-modal-icon mb-2"><i class="fas fa-times-circle"></i></div>
+          <div class="delete-modal-title">Are you Sure ?</div>
+        </div>
+        <div class="modal-body mb-3">
+          <div class="delete-note-text">Do you really want to delete this note? This process cannot be undone.</div>
+        </div>
+        <form action="/dashboard/deleteNote" method="POST">
+            <div class="modal-footer delete-modal-footer">
+                <button type="button" class="btn btn-outline-warning" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-warning modal-delete-note-btn">Delete</button>
+            </div>
+            <input name="deletenoteid" id="delete-note-id" style="display: none;" />
+            <button type="submit" id="delete-note-submit-btn" style="display: none;"></button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal -->
+<div class="modal fade" id="themeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header theme-modal-header white" id="themeModalheader">
+            <div class="theme-modal-title">Are you Sure title helloTake respect</div>
+            <div class="theme-modal-content">Are you Sure title helloTake respect at workplace sessionTake respect at workplace sessionTake respect at workplace sessionTake respect at workplace session</div>
+          </div>
+        <div class="modal-body">
+          
+            <div class="note-themes">
+                <div class="note-themes-item">
+                    <div class="note-theme-color white" id="no-bg">
+                        <i class="fas fa-check-circle note-color-choosed-indicator" style="display: none;"></i>
+                        <i class="fas fa-tint-slash"></i>
+                    </div>
+                    <div class="note-theme-color blue"> 
+                        <i class="fas fa-check-circle note-color-choosed-indicator" style="display: none;"></i> 
+                    </div>
+                    <div class="note-theme-color green">
+                        <i class="fas fa-check-circle note-color-choosed-indicator" style="display: none;"></i>
+                    </div>
+                    <div class="note-theme-color pink">
+                        <i class="fas fa-check-circle note-color-choosed-indicator" style="display: none;"></i>  
+                    </div>
+                    <div class="note-theme-color red">
+                        <i class="fas fa-check-circle note-color-choosed-indicator" style="display: none;"></i>  
+                    </div>
+                    <div class="note-theme-color orange"> 
+                        <i class="fas fa-check-circle note-color-choosed-indicator" style="display: none;"></i> 
+                    </div>
+                    <div class="note-theme-color yellow"> 
+                        <i class="fas fa-check-circle note-color-choosed-indicator" style="display: none;"></i> 
+                    </div>
+                    <div class="note-theme-color light"> 
+                        <i class="fas fa-check-circle note-color-choosed-indicator" style="display: none;"></i> 
+                    </div>
+                    <div class="note-theme-color black"> 
+                        <i class="fas fa-check-circle note-color-choosed-indicator" style="display: none;"></i> 
+                    </div>
+                </div> 
+            </div>           
+                            
+        </div>
+        <div class="modal-footer theme-modal-footer">
+            <form action="/dashboard/changeColor" method="POST">
+                <input type="text" name="formId" class="theme-modal-formid" style="display: none;" />
+                <input type="text" name="color" class="theme-modal-color" style="display: none;" />
+                <button type="button" class="btn btn-outline-warning" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-warning theme-modal-save-btn">Save</button>
+                <button class="theme-modal-submit-btn" type="submit" style="display: none;"></button>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script src="/scripts/dasboard-script.js" ></script>
+
+<%- include('partials/footer') %>

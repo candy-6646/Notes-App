@@ -1,0 +1,34 @@
+<%- include('partials/header') %>
+
+<div class="header-container">
+    <a href="/"><span>Notes</span></a>    
+</div>
+
+<div class="row home-container">
+    <div class="col-lg-6 col-sm-12 box">
+        <h2> Note-taking gives your mind a chance to absorb the material it needs to learn.</h2>
+        <p>Easily create and share online notes with your friends to collaborate with them.</p>
+        <div class="login-buttons">
+            <a href="/auth/google">
+                <button type="button" class="btn btn-warning btn-lg">
+                        <i class="fab fa-google"></i>
+                        Sign In with Google
+                </button>
+            </a>
+            <a href="/dashboard">
+                <button type="button" class="btn btn-outline-warning btn-lg">
+                    Go to Notes
+                </button>
+            </a>
+        </div>
+        <div class="create-account">
+            <p>Don't have an account?</p>
+            <a href="/register">Create an account</a>
+        </div>   
+    </div>
+    <div class="col-lg-6 col-sm-12 box">
+        <img src="/images/boy-img.png" class="img-fluid" alt="Responsive image" />
+    </div>
+</div>
+
+<%- include('partials/footer') %>

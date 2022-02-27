@@ -1,0 +1,874 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: "Montserrat", sans-serif;
+}
+
+body {
+    background: #FFF;
+}
+
+
+/* home styles */
+.header-container {
+    width: 100%;
+    height: 5rem;
+    background-color: #fff;
+    color: #FFB72B;
+    display: flex;
+    align-items: center;
+    padding: 25px;
+    border-bottom: 1px solid #CDD0CB;
+}
+
+.header-container>a {
+    text-decoration: none;
+}
+
+.header-container>a>span {
+    font-size: 36px;
+    color: #FFB72B;
+    font-family: "McLaren", cursive;
+    font-weight: 200;
+}
+
+.home-container {
+    height: 28rem;
+    width: 100%;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px;
+    height: 100%;
+}
+
+.box>h2 {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.box .login-buttons>a {
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.box .create-account {
+    display: flex;
+    margin-top: 20px;
+}
+
+.box .create-account>a {
+    text-decoration: none;
+    margin-left: 10px;
+    color: #FFB72B;
+}
+
+.btn-warning {
+    color: #fff;
+}
+
+.btn-warning:hover {
+    color: #fff;
+}
+
+.btn-outline-warning:hover {
+    color: #fff;
+}
+
+
+/* login-page */
+.login-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    margin-top: 30px;
+}
+
+.login-btn {
+    width: 100%;
+}
+
+.login-form-container {
+    border-radius: 6px;
+    box-shadow: 0 0 6px 4px #CDD0CB;
+    background-color: #fff;
+}
+
+/* register page */
+.register-container {
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.register-form-container {
+    border-radius: 6px;
+    box-shadow: 0 0 6px 4px #CDD0CB;
+    background-color: #fff;
+}
+
+a {
+    text-decoration: none;
+    color: #FFB72B;
+}
+
+/* dashboard */
+.dashboard-container {
+    width: 100vw;
+    height: 100vh;
+    background-color: #fff;
+}
+
+.dashboard-header {
+    height: 4rem;
+    border-bottom: 1px solid #CDD0CB;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.dashboard-header .dashboard-header-item > a > span {
+    font-size: 36px;
+    color: #FFB72B;
+    font-family: "McLaren", cursive;
+    font-weight: 200;
+    margin-left: 20px;
+}
+
+.profile-icon-container {
+    position: absolute;
+    height: 100%;
+    width: 100px;
+    right: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-profile {
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: #FFF;
+    background-color: #FFB72B;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-profile-info-container {
+    position: absolute;
+    top: 4rem;
+    right: 20px;
+    box-shadow: 0 0 6px 4px #CDD0CB;
+    border-radius: 6px;
+    height: 10rem;
+    width: 18rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+    background-color: #FFF;
+}
+
+.user-profile-info-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 50%;
+    width: 100%;
+    padding: 20px;
+}
+
+.user-profile-info-item .userName {
+    font-weight: bold;
+    color: #FFB72B;
+}
+
+.user-profile-info-item .userEmail {
+    font-weight: 50;
+    margin-top: 5px;
+}
+
+.user-profile-info-container .item2 {
+    border-top: 1px solid #CDD0CB;
+}
+
+.user-profile-info-container .item2>a {
+    width: 100%;
+}
+
+.logout-btn {
+    width: 100%;
+    border: 1px solid #FFB72B;
+    color: #FFB72B;
+}
+
+.logout-btn:hover {
+    background-color: #EEEEEE;
+    background-color: #FFB72B;
+    color: #fff;
+}
+
+.notes-container {
+    height: calc(100vh - 4rem);
+    width: 100%;
+    overflow-y: scroll;
+}
+
+.notes-container .note-creator-div {
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.note-creator-div .note-creator-item {
+    height: 3rem;
+    width: 45%;
+    box-shadow: 0 0 6px 4px #CDD0CB;
+    border-radius: 6px;
+    letter-spacing: .00625em;
+    font-family: 'Google Sans',Roboto,Arial,sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    display: flex;
+    padding-left: 20px;
+    align-items: center;
+    cursor: text;
+    position: relative;
+}
+
+.add-btn {
+    position: absolute;
+    right: 20px;
+    top: 0px;
+    font-weight: 100;
+    height: 3rem;
+    width: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.add-btn:hover {
+    background-color: #EEEEEE;
+    cursor: pointer;
+}
+
+.note-creator-item-with-input {
+    height: auto;
+    width: 45%;
+    box-shadow: 0 0 6px 4px #CDD0CB;
+    border-radius: 6px;
+    letter-spacing: .00625em;
+    font-family: 'Google Sans',Roboto,Arial,sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    cursor: text;
+    position: relative;
+    flex-direction: column;
+}
+
+@media (max-width: 768px) {
+    .note-creator-item-with-input {
+        width: 18rem;
+    } 
+
+    .note-creator-div .note-creator-item {
+        width: 18rem;
+    }
+}
+
+.note-creator-item-with-input>form {
+    width: 100%;
+    height: auto;
+}
+
+.note-creator-item-with-input .note-creator-div-title {
+    min-height: 3rem;
+    max-height: auto;
+    width: 100%;
+    outline: none;
+    font-size: 20px;
+    color: grey;
+    padding: 5px;
+}
+
+.note-creator-item-with-input .note-creator-div-note {
+    height: auto;
+    width: 100%;
+}
+
+.note-creator-item-with-input .note-creator-div-note>textarea {
+    width: 100%;
+    height: 4rem;
+    outline: none;
+    border: none;
+    padding: 5px;
+}
+
+.note-creator-item-with-input .note-creator-div-icons {
+    height: 3rem;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    padding: 5px;
+    position: relative;
+}
+
+.note-creator-div-icons-item {
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.note-creator-div-icons-item:hover {
+    background-color: #EEEEEE;
+    cursor: pointer;
+}
+
+.icon-btn  {
+    position: absolute;
+    right: 10px;
+    background-color: white;
+    border: none;
+    outline: none;
+    width: 100px;
+    border-radius: 6px;
+    padding: 5px;
+    background-color: #EEEEEE;
+    color: gray;
+}
+
+.icon-btn:hover {
+    background-color: gray;
+    color: #fff;
+}
+
+.save-note-btn {
+    right: 120px; 
+}
+
+.notes {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    height: auto;
+}
+
+.notes .note {
+    height: auto;
+    width: 15rem;
+    background-color: #fff;
+    border: 1px solid #CDD0CB;
+    border-radius: 6px;
+    padding: 10px;
+    margin: 20px;
+    z-index: 5;
+    padding-bottom: 60px;
+    position: relative;
+}
+
+.notes .note:hover  {
+    box-shadow: 0 0 6px 4px #CDD0CB;
+}
+
+.note .note-options {
+    height:50px;
+    width: 100%;
+    position: absolute;
+    z-index: 6;
+    bottom: 0px;
+    left: 0px;
+    border-radius: 6px;
+    color: black;
+    display: flex;
+}
+
+.note .note-options .note-option-item {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.note .note-options>div:hover {
+    background-color: #EEEEEE;
+    cursor: pointer;
+}
+
+.notes .note .note-title-cutted {
+    font-size: 20px;
+    padding: 5px;
+    font-weight: bold;
+    border-bottom: 1px solid #EAEAEA;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.notes .note .note-content {
+    padding: 5px;
+    font-size: 14px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+
+/* modal edit note */
+#edit-note .modal-body {
+    margin: 10px 20px 10px 20px;
+    border: 1px solid #CDD0CB;
+    border-radius: 6px;
+}
+
+#edit-note-title {
+    font-size: 20px;
+    font-weight: 150;
+    color: gray;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px 20px 10px 20px;
+    margin-bottom: 20px;
+    border-color: #CDD0CB;
+}
+
+#edit-note-content {
+    border-color: #CDD0CB;
+    color: #202124;
+    height: 300px;
+    letter-spacing: .00625em;
+    font-family: Roboto,Arial,sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+    padding: 10px 20px 10px 20px;
+}
+
+#edit-note .edit-note-footer {
+    justify-content: center;
+    border: none;
+}
+
+#share-note .share-note-icon {
+    margin-right: 10px;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #FFB72B;
+    color: #fff;
+}
+
+#exampleModalLabel {
+    display: flex;
+    align-items: center;
+}
+
+.share-note-item p {
+    font-size: 12px;
+    color: gray;
+}
+
+.share-note-item .share-note-copy-link-container {
+    display: flex;
+    width: 100%;
+    border-radius: 10px;
+    background-color: #EEEEEE;
+}
+
+.share-note-item .share-note-copy-link-container .share-note-copy-link-container-link {
+    width: 80%;
+    height: 100%;
+    color: #202124;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    outline: none;
+    overflow: hidden;
+}
+
+.share-note-item .share-note-copy-link-container .share-note-copy-link-container-copy-btn {
+    width: 20%;
+    height: 100%;
+    background-color: #FFB72B;
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.note-shared-indicator {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    color: #202124;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.delete-modal-header {
+    border-bottom: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.delete-modal-header .delete-modal-title {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: gray;
+    font-weight: bold;
+}
+
+.delete-modal-icon {
+    height: 80px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 80px;
+    color: #FFB72B;
+}
+
+.delete-note-text {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    color: #6D8299;
+    padding: 30px;
+}
+
+.delete-modal-footer {
+    border: none;
+    justify-content: center;
+}
+
+
+/* note themes */
+
+.note-themes {
+    width: 100%;
+    height: 60px;
+    background-color: #fff;
+    display: flex;
+}
+
+.note-themes .note-themes-item {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.note-themes-item .note-theme-color {
+    margin: 5px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 18px;
+    position: relative;
+}
+
+#no-bg {
+    border: 2px solid #CDD0CB;
+    padding: 15px;
+}
+
+.note-color-choosed-indicator {
+    position: absolute;
+    right: -6px;
+    font-size: 14px;
+    color: #202124;
+    top: 0px;
+}
+
+.pink {
+    background-color: #FFB2A6 !important;
+    color: #fff !important;
+}
+
+.blue {
+    background-color: #9AD0EC !important;
+    color: #fff !important;
+}
+
+.green {
+    background-color: #8BDB81 !important;
+    color: #fff !important;
+}
+
+.red {
+    background-color: #FC4F4F !important;
+    color: #fff !important;
+}
+
+.orange {
+    background-color: #FF9F45 !important;
+    color: #fff !important;
+}
+
+.yellow {
+    background-color: #FFF89A !important;
+    color: gray !important;
+}
+
+.light {
+    background-color: #E5DCC3 !important;
+    color: gray !important;
+}
+
+.white {
+    background-color: #FFF !important;
+    color: #202124 !important;
+}
+
+.black{
+    background-color: #444444 !important;
+    color: #fff !important;
+}
+
+
+/* theme modal */
+.theme-modal-header {
+    border-bottom: none;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    border: 1px solid #CDD0CB;
+    margin: 10px;
+    border-radius: 6px;
+}
+
+.theme-modal-header .theme-modal-title {
+    height: auto;
+    width: 100%;
+    display: flex;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 1px solid #EAEAEA;
+    margin-bottom: 5px;
+}
+
+.theme-modal-footer {
+    justify-content: center;
+}
+
+.theme-modal-content {
+    height: auto;
+    width: 100%;
+    display: flex;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 16px;
+    overflow: hidden;
+}
+
+
+/* shared page */
+.shared-container {
+    height: 100vh;
+    width: 100vw;
+}
+
+.shared-container .shared-note-container {
+    height: calc(100vh - 4rem);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    overflow-x: hidden;
+}
+
+.shared-note-container .shared-note {
+    height: auto;
+    border-radius: 6px;
+    border: 1px solid #CDD0CB;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    z-index: 1;
+    position: relative;
+}
+
+.shared-note-container .shared-note:hover {
+    box-shadow: 0 0 6px 4px #CDD0CB;
+}
+
+.shared-note .shared-note-title {
+    height: auto;
+    width: 90%;
+    border-bottom: 1px solid #CDD0CB;
+    padding: 20px;
+    letter-spacing: .00625em;
+    font-family: 'Google Sans',Roboto,Arial,sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 1.5rem;
+    margin-top: 30px;
+}
+
+.shared-note .shared-note-content {
+    height: auto;
+    width: 90%;
+    font-size: 16px;
+    padding: 20px;
+    font-family: 'Google Sans',Roboto,Arial,sans-serif;
+    margin-bottom: 30px;
+    word-wrap: break-word;
+}
+
+.shared-note .shared-note-options {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    height: 50px;
+    width: 150px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    color: #202124;
+}
+
+.shared-note .shared-note-options .shared-note-options-item {
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.shared-note .shared-note-options .shared-note-options-item:hover {
+    background-color: #EEEEEE;
+    cursor: pointer;
+}
+
+.shared-container .shared-user {
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    height: 20px;
+    width: auto;
+    font-family: "McLaren", cursive;
+    font-size: 12px;
+}
+
+.shared-note .shared-note-themes {
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    z-index: 10;
+    background-color: #fff;
+    border-radius: 6px;
+    border: 1px solid #CDD0CB;
+}
+
+.shared-note .shared-note-themes .note-themes-item  {
+    display: flex;
+    padding: 10px;
+}
+
+.note-themes-item-btn-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.note-themes-item-btn-container .note-themes-item-btn {
+    padding: 10px;
+    width: 100px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    margin-left: 10px;
+    color: #202124;
+}
+
+.note-themes-item-btn-container .note-themes-item-btn:hover {
+    background-color: #EEEEEE;
+    cursor: pointer;
+}
+
+.no-note {
+    height: auto;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    z-index: 1;
+    padding: 30px;
+}
+
+.no-note .no-note-item {
+    margin: 10px;
+    display: flex;
+}
+
+.no-note .no-note-emote {
+    font-size: 50px;
+    color: #FFB72B;
+}
+
+.no-note-item>a {
+    margin: 0px 10px 0px 10px;
+}
+
+.no-note .no-note-text {
+    font-size: 12px;
+    color: #202124;
+    font-weight: bold;
+}
+
+.no-note .no-note-title {
+    font-size: 18px;
+    color: #ffc107;
+    font-weight: bold;
+    text-align: center;
+}

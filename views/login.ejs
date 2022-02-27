@@ -1,0 +1,35 @@
+<%- include('partials/header') %>
+
+<div class="header-container">
+    <a href="/"><span>Notes</span></a>    
+</div>
+
+<div class="row login-page-container">
+    <div class="col-lg-4 login-form-container">
+        <div class="text-center">
+            <img src="/images/notes.png" style="width: 185px;" alt="logo">
+            <h4 class="mt-1 mb-5 pb-1">Let's make some notes</h4>
+          </div>
+
+          <form method="post" action="/login">
+            <div class="form-outline mb-4">
+              <input type="email" id="form2Example11" class="form-control" placeholder="Email address" name="username" required />
+            </div>
+
+            <div class="form-outline mb-4">
+              <input type="password" id="form2Example22" class="form-control" placeholder="Password" name="password" required />
+            </div>
+
+            <button type="submit" class="btn btn-warning btn-lg login-btn">
+                Login
+            </button>
+          </form>
+          <div class="d-flex align-items-center justify-content-center pb-4 mt-4">
+            <p class="mb-0 me-2">Don't have an account?</p>
+            <a href="/register">Register here</a>
+          </div>
+    </div>
+</div>
+
+
+<%- include('partials/footer') %>
